@@ -1,0 +1,31 @@
+Join none
+The parent process continues to execute concurrently with all the processes spawned by the fork. The spawned processes do not start executing until the parent thread executes a blocking statement.
+
+BEFORE fork time =       10 
+time =                   10 Outside the main fork 
+time =                   15 # 5 
+time =                   20 # 10 
+time =                   30 # 20 
+$finish at simulation time                   50
+
+Join any
+
+The parent process blocks until any one of the processes spawned by this fork complete.
+
+BEFORE fork time =       10 
+time =                   15 # 5 
+time =                   15 Outside the main fork 
+time =                   20 # 10 
+time =                   30 # 20 
+$finish at simulation time                   55
+
+Join all
+
+The parent process blocks until all the processes spawned by this fork complete. 
+
+BEFORE fork time =       10 
+time =                   15 # 5 
+time =                   20 # 10 
+time =                   30 # 20 
+time =                   30 Outside the main fork 
+$finish at simulation time                   70
